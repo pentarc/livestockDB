@@ -4,6 +4,7 @@
 # kthxbai
 
 from tkinter import *
+from tkinter import ttk
 
 class ldb(Frame):
 
@@ -15,15 +16,16 @@ class ldb(Frame):
     self.centerWindow()
     
     # set up the window structure
-    p = Panedwindow(self, orient=HORIZONTAL)
+    p = ttk.Panedwindow(self, orient=HORIZONTAL)
     p.pack(fill=BOTH, expand=1)
-    f1 = Frame(p, width=100)
-    f2 = Frame(p)
+    f1 = Frame(p, width=200, background="white")
+    f2 = Frame(p, background="white")
     p.add(f1)
     p.add(f2)
     
+    
     # set up tree in left pane (f1)
-    tree = Treeview(f1)
+    tree = ttk.Treeview(f1)
     tree.insert('', 0, 'herdInfo', text='Herd Info')
     tree.insert('herdInfo', 0, 'addCritter', text='Add Critter')
     tree.insert('herdInfo', 1, 'updateCritter', text='Update Critter')
@@ -37,6 +39,7 @@ class ldb(Frame):
     tree.insert('medicalInfo', 0, 'updateMedRecord', text='Update Med Record')
     tree.insert('medicalInfo', 1, 'batchUpdateMedRecords', text='Batch Update Med Records')
     tree.insert('medicalInfo', 2, 'updateProcedures', text='Update Procedures')
+    tree.pack(fill=BOTH, expand=1)
 
   def centerWindow(self):
     w = 800
